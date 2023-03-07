@@ -13,7 +13,23 @@ browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 my_username = "nally2345"
 my_password = "testingwhatnot"
 
-usernames = ["ashok.dvrddy", "shrinandan.kn", "allison23liu", "yashwang23", "maria.xuu", "amandaleong_", "euniceyoon_", "keely_ford", "michelle.j.chen", "ryan.ck8", "berkeleyventure", "waddledeesnutz", "infoods_specials", "kirby.forgor", "sollem_luv4", "kirbyreelz", "kono.ch", "xionghea", "yoshimayu_", "julie.m.engel", "punkybunny", "ryo.so.ha", "draw_one_draw_two", "figgypuddin_", "zz.mama", "reminababy", "changs.garden", "naptimedoodler", "kimi.3t2", "numsiri_", "ahmet_ayy33", "saskueofsharigan", "asiabarbie", "1224heart", "moon195hdoll"]
+usernames = ["lolifairies", "kutiecrafts", "resin.sweetshop", "runamishop", "mykawaiispace", "starlightsparklesart", "kawaiitherapy", "miffy_official", "lunas_emporium", "kawaiienvy", "sweetmagicpaper", "vanyarushop", 
+    "korekawaiistore", "damxspa", "ponyo_corniocosmico", "kawaiiteeshop", "thekawaiistory", "sh0ppeum", "candyhashi", "thebunbunshopofficial", "kawaiila_official", "thekawaiiconbini", "marofcreativity", "turtle.dove", 
+    "kizspurr", "becca_vicious", "harajukuyume", "songes_illustrations", "shopcosmiclovely", "nicole.josephine", 
+    "niji.usako.creations", "fairy.angelstore", "lacuchiwea", "10eestudio", 
+    "crystal_creations_shop", "himashop___", "vazoonlinestore", "kpop_store__italia", 
+    "otrio.stationery", "angelbunshop", "temps_dune_lolita", "designstudio_loliya",
+    "teo_fun_art", "rebelyellsdesign", "kawaiies.collection", 
+    "hiro.sep10ber", "bombo_maka.shop", "bluebearyco", "ubekeen", "kwaiishup_", "cautiivate",
+    "macarons_and_stilettos", "catmeilingcreations", "kumacolv", "sanriotyler", "dollipop_sweet_shoppe",
+    "anime.healing", "utileschic", "illustratorjake", "tuzineko", "dollipoppette", "kittenslittlewonders", "kawaiipaperdream", 
+    "kawaiigirlz.1", "lacasitadelasternuritas", "riversidekawaiishop", "katrinasdreamsshop", "holleyteatime", 
+    "polymernai", "luckyrainbowboutique", "divinegracehealing", "espa.cio120", "artemkemirov", 
+    "rainbelyart", "kawaiicraftlady", "cosmical_doll", "tiffstudioco", "jeanadraws", 
+    "kamiaristudio", "peque.store.pe", "oishi_toys", "mariahannxo", "vanillacookiestarshop", 
+    "fairyheartsshop", "usagistore40", "tofucute", "poussinetpoupette", "latelier.de.cabich", 
+    "kukistore.120", "opalandfern", "kanakodonnako", "psychobabyshop", "kozimocha", 
+    "stuffy_puffs", "natgreenart", "____aristocrats____bd", "poyura.co", "tiny.treasures__", "lulidelacroix"]
 
 messages = ["Hi! We’re running marketing and outreach tests on behalf of our company. Please disregard this message and have a great day!"]
 
@@ -24,6 +40,10 @@ def auth(username, password):
         browser.get('https://instagram.com')
         time.sleep(random.randrange(2,4))
 
+        #wait for page to load
+        WebDriverWait(browser, 30).until(EC.element_to_be_clickable((By.NAME, "name")))
+        WebDriverWait(browser, 30).until(EC.element_to_be_clickable((By.NAME, "password")))
+
         input_username = browser.find_element("name", 'username')
         input_password = browser.find_element("name", 'password')
 
@@ -33,8 +53,6 @@ def auth(username, password):
         time.sleep(random.randrange(1,2))
         input_password.send_keys(Keys.ENTER)
         time.sleep(random.randrange(1,2))
-
-        
     except Exception as err:
         print(err)
         browser.quit()
@@ -85,7 +103,7 @@ def send_message(users, messages):
 
             print("Succesfully sent to " + user)
 
-            time.sleep(random.randrange(2,4))
+            time.sleep(random.randrange(180,200))
             
 
 
