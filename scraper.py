@@ -12,9 +12,17 @@ browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
 my_username = "nally2345"
 my_password = "testingwhatnot"
-
-usernames = ["lolifairies", "kutiecrafts", "resin.sweetshop", "runamishop", "mykawaiispace", "starlightsparklesart", "kawaiitherapy", "miffy_official", "lunas_emporium", "kawaiienvy", "sweetmagicpaper", "vanyarushop", 
-    "korekawaiistore", "damxspa", "ponyo_corniocosmico", "kawaiiteeshop", "thekawaiistory", "sh0ppeum", "candyhashi", "thebunbunshopofficial", "kawaiila_official", "thekawaiiconbini", "marofcreativity", "turtle.dove", 
+usernames = [ 
+    "utileschic", "illustratorjake", "tuzineko", "dollipoppette", "kittenslittlewonders", "kawaiipaperdream", 
+    "kawaiigirlz.1", "lacasitadelasternuritas", "riversidekawaiishop", "katrinasdreamsshop", "holleyteatime", "polymernai", "luckyrainbowboutique", "divinegracehealing", "espa.cio120", "artemkemirov", 
+    "rainbelyart", "kawaiicraftlady", "cosmical_doll", "tiffstudioco", "jeanadraws", 
+    "kamiaristudio", "peque.store.pe", "oishi_toys", "mariahannxo", "vanillacookiestarshop", 
+    "fairyheartsshop", "usagistore40", "tofucute", "poussinetpoupette", "latelier.de.cabich", 
+    "kukistore.120", "opalandfern", "kanakodonnako", "psychobabyshop", "kozimocha", 
+    "stuffy_puffs", "natgreenart", "____aristocrats____bd", "poyura.co", "tiny.treasures__", "lulidelacroix", "lolifairies", 
+    "kutiecrafts", "resin.sweetshop", "runamishop", "mykawaiispace", "starlightsparklesart", "kawaiitherapy", "miffy_official", 
+    "lunas_emporium", "kawaiienvy", "sweetmagicpaper", "vanyarushop", "korekawaiistore", "damxspa", "ponyo_corniocosmico", "kawaiiteeshop", 
+    "thekawaiistory", "sh0ppeum", "candyhashi", "thebunbunshopofficial", "kawaiila_official", "thekawaiiconbini", "marofcreativity", "turtle.dove", 
     "kizspurr", "becca_vicious", "harajukuyume", "songes_illustrations", "shopcosmiclovely", "nicole.josephine", 
     "niji.usako.creations", "fairy.angelstore", "lacuchiwea", "10eestudio", 
     "crystal_creations_shop", "himashop___", "vazoonlinestore", "kpop_store__italia", 
@@ -22,14 +30,7 @@ usernames = ["lolifairies", "kutiecrafts", "resin.sweetshop", "runamishop", "myk
     "teo_fun_art", "rebelyellsdesign", "kawaiies.collection", 
     "hiro.sep10ber", "bombo_maka.shop", "bluebearyco", "ubekeen", "kwaiishup_", "cautiivate",
     "macarons_and_stilettos", "catmeilingcreations", "kumacolv", "sanriotyler", "dollipop_sweet_shoppe",
-    "anime.healing", "utileschic", "illustratorjake", "tuzineko", "dollipoppette", "kittenslittlewonders", "kawaiipaperdream", 
-    "kawaiigirlz.1", "lacasitadelasternuritas", "riversidekawaiishop", "katrinasdreamsshop", "holleyteatime", 
-    "polymernai", "luckyrainbowboutique", "divinegracehealing", "espa.cio120", "artemkemirov", 
-    "rainbelyart", "kawaiicraftlady", "cosmical_doll", "tiffstudioco", "jeanadraws", 
-    "kamiaristudio", "peque.store.pe", "oishi_toys", "mariahannxo", "vanillacookiestarshop", 
-    "fairyheartsshop", "usagistore40", "tofucute", "poussinetpoupette", "latelier.de.cabich", 
-    "kukistore.120", "opalandfern", "kanakodonnako", "psychobabyshop", "kozimocha", 
-    "stuffy_puffs", "natgreenart", "____aristocrats____bd", "poyura.co", "tiny.treasures__", "lulidelacroix"]
+    "anime.healing"]
 
 messages = ["Hi! We’re running marketing and outreach tests on behalf of our company. Please disregard this message and have a great day!"]
 
@@ -41,8 +42,8 @@ def auth(username, password):
         time.sleep(random.randrange(2,4))
 
         #wait for page to load
-        WebDriverWait(browser, 30).until(EC.element_to_be_clickable((By.NAME, "name")))
-        WebDriverWait(browser, 30).until(EC.element_to_be_clickable((By.NAME, "password")))
+        # WebDriverWait(browser, 30).until(EC.element_to_be_clickable((By.NAME, "name")))
+        # WebDriverWait(browser, 30).until(EC.element_to_be_clickable((By.NAME, "password")))
 
         input_username = browser.find_element("name", 'username')
         input_password = browser.find_element("name", 'password')
@@ -103,7 +104,7 @@ def send_message(users, messages):
 
             print("Succesfully sent to " + user)
 
-            time.sleep(random.randrange(180,200))
+            time.sleep(random.randrange(240,250))
             
 
 
