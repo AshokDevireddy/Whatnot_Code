@@ -10,28 +10,28 @@ from selenium.webdriver.support import expected_conditions as EC
 
 browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
-my_username = "nally2345"
+my_username = "yashwang23"
 my_password = "testingwhatnot"
-usernames = [ 
-    "utileschic", "illustratorjake", "tuzineko", "dollipoppette", "kittenslittlewonders", "kawaiipaperdream", 
-    "kawaiigirlz.1", "lacasitadelasternuritas", "riversidekawaiishop", "katrinasdreamsshop", "holleyteatime", "polymernai", "luckyrainbowboutique", "divinegracehealing", "espa.cio120", "artemkemirov", 
-    "rainbelyart", "kawaiicraftlady", "cosmical_doll", "tiffstudioco", "jeanadraws", 
-    "kamiaristudio", "peque.store.pe", "oishi_toys", "mariahannxo", "vanillacookiestarshop", 
-    "fairyheartsshop", "usagistore40", "tofucute", "poussinetpoupette", "latelier.de.cabich", 
-    "kukistore.120", "opalandfern", "kanakodonnako", "psychobabyshop", "kozimocha", 
-    "stuffy_puffs", "natgreenart", "____aristocrats____bd", "poyura.co", "tiny.treasures__", "lulidelacroix", "lolifairies", 
-    "kutiecrafts", "resin.sweetshop", "runamishop", "mykawaiispace", "starlightsparklesart", "kawaiitherapy", "miffy_official", 
-    "lunas_emporium", "kawaiienvy", "sweetmagicpaper", "vanyarushop", "korekawaiistore", "damxspa", "ponyo_corniocosmico", "kawaiiteeshop", 
-    "thekawaiistory", "sh0ppeum", "candyhashi", "thebunbunshopofficial", "kawaiila_official", "thekawaiiconbini", "marofcreativity", "turtle.dove", 
-    "kizspurr", "becca_vicious", "harajukuyume", "songes_illustrations", "shopcosmiclovely", "nicole.josephine", 
-    "niji.usako.creations", "fairy.angelstore", "lacuchiwea", "10eestudio", 
-    "crystal_creations_shop", "himashop___", "vazoonlinestore", "kpop_store__italia", 
-    "otrio.stationery", "angelbunshop", "temps_dune_lolita", "designstudio_loliya",
-    "teo_fun_art", "rebelyellsdesign", "kawaiies.collection", 
-    "hiro.sep10ber", "bombo_maka.shop", "bluebearyco", "ubekeen", "kwaiishup_", "cautiivate",
-    "macarons_and_stilettos", "catmeilingcreations", "kumacolv", "sanriotyler", "dollipop_sweet_shoppe",
-    "anime.healing"]
-
+# usernames = [ 
+#     "utileschic", "illustratorjake", "tuzineko", "dollipoppette", "kittenslittlewonders", "kawaiipaperdream", 
+#     "kawaiigirlz.1", "lacasitadelasternuritas", "riversidekawaiishop", "katrinasdreamsshop", "holleyteatime", "polymernai", "luckyrainbowboutique", "divinegracehealing", "espa.cio120", "artemkemirov", 
+#     "rainbelyart", "kawaiicraftlady", "cosmical_doll", "tiffstudioco", "jeanadraws", 
+#     "kamiaristudio", "peque.store.pe", "oishi_toys", "mariahannxo", "vanillacookiestarshop", 
+#     "fairyheartsshop", "usagistore40", "tofucute", "poussinetpoupette", "latelier.de.cabich", 
+#     "kukistore.120", "opalandfern", "kanakodonnako", "psychobabyshop", "kozimocha", 
+#     "stuffy_puffs", "natgreenart", "____aristocrats____bd", "poyura.co", "tiny.treasures__", "lulidelacroix", "lolifairies", 
+#     "kutiecrafts", "resin.sweetshop", "runamishop", "mykawaiispace", "starlightsparklesart", "kawaiitherapy", "miffy_official", 
+#     "lunas_emporium", "kawaiienvy", "sweetmagicpaper", "vanyarushop", "korekawaiistore", "damxspa", "ponyo_corniocosmico", "kawaiiteeshop", 
+#     "thekawaiistory", "sh0ppeum", "candyhashi", "thebunbunshopofficial", "kawaiila_official", "thekawaiiconbini", "marofcreativity", "turtle.dove", 
+#     "kizspurr", "becca_vicious", "harajukuyume", "songes_illustrations", "shopcosmiclovely", "nicole.josephine", 
+#     "niji.usako.creations", "fairy.angelstore", "lacuchiwea", "10eestudio", 
+#     "crystal_creations_shop", "himashop___", "vazoonlinestore", "kpop_store__italia", 
+#     "otrio.stationery", "angelbunshop", "temps_dune_lolita", "designstudio_loliya",
+#     "teo_fun_art", "rebelyellsdesign", "kawaiies.collection", 
+#     "hiro.sep10ber", "bombo_maka.shop", "bluebearyco", "ubekeen", "kwaiishup_", "cautiivate",
+#     "macarons_and_stilettos", "catmeilingcreations", "kumacolv", "sanriotyler", "dollipop_sweet_shoppe",
+#     "anime.healing"]
+usernames = ["utileschic", "illustratorjake", "tuzineko", "dollipoppette", "kittenslittlewonders", "kawaiipaperdream"]
 messages = ["Hi! We’re running marketing and outreach tests on behalf of our company. Please disregard this message and have a great day!"]
 
 #browser = webdriver.Chrome('chromedriver_mac_arm64')
@@ -86,7 +86,7 @@ def send_message(users, messages):
 
             try: 
             #select user
-                WebDriverWait(browser, 30).until(EC.element_to_be_clickable((By.XPATH,"/html/body/div[2]/div/div/div[2]/div/div/div[1]/div/div[2]/div/div/div/div/div[2]/div/div[2]/div[2]/div/div/div[3]/button"))).click()
+                WebDriverWait(browser, 30).until(EC.element_to_be_clickable((By.XPATH,"/html/body/div[2]/div/div/div[2]/div/div/div[1]/div/div[2]/div/div/div/div/div[2]/div/div[2]/div[2]/div[1]/div[1]/div/div/div[3]/div/button"))).click()
             except:
                 WebDriverWait(browser, 30).until(EC.element_to_be_clickable((By.XPATH,"/html/body/div[2]/div/div/div[2]/div/div/div[1]/div/div[2]/div/div/div/div/div[2]/div/div[1]/div/div[2]/div/button"))).click()
                 print("Failed tp send to", user)
@@ -103,8 +103,9 @@ def send_message(users, messages):
             text_area.send_keys(Keys.ENTER)
 
             print("Succesfully sent to " + user)
+            time.sleep(random.randrange(5,7))
 
-            time.sleep(random.randrange(240,250))
+            #time.sleep(random.randrange(240,250))
             
 
 
@@ -114,6 +115,6 @@ def send_message(users, messages):
         print(err)
         browser.quit()
 
-auth(my_username, my_password)
-time.sleep(random.randrange(3,5))
-send_message(usernames, messages)
+# auth(my_username, my_password)
+# time.sleep(random.randrange(3,5))
+# send_message(usernames, messages)
