@@ -16,7 +16,7 @@ import glob
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'mysecretkey'
-app.config['UPLOAD_FOLDER'] = 'uploads'
+app.config['UPLOAD_FOLDER'] = 'templates'
 app.config['ALLOWED_EXTENSIONS'] = {'csv'}
 csrf = CSRFProtect(app)
 
