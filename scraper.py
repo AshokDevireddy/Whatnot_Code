@@ -10,31 +10,29 @@ from selenium.webdriver.support import expected_conditions as EC
 
 browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
-my_username = "yourinput"
-my_password = "yourinput"
-# usernames = [ 
-#     "utileschic", "illustratorjake", "tuzineko", "dollipoppette", "kittenslittlewonders", "kawaiipaperdream", 
-#     "kawaiigirlz.1", "lacasitadelasternuritas", "riversidekawaiishop", "katrinasdreamsshop", "holleyteatime", "polymernai", "luckyrainbowboutique", "divinegracehealing", "espa.cio120", "artemkemirov", 
-#     "rainbelyart", "kawaiicraftlady", "cosmical_doll", "tiffstudioco", "jeanadraws", 
-#     "kamiaristudio", "peque.store.pe", "oishi_toys", "mariahannxo", "vanillacookiestarshop", 
-#     "fairyheartsshop", "usagistore40", "tofucute", "poussinetpoupette", "latelier.de.cabich", 
-#     "kukistore.120", "opalandfern", "kanakodonnako", "psychobabyshop", "kozimocha", 
-#     "stuffy_puffs", "natgreenart", "____aristocrats____bd", "poyura.co", "tiny.treasures__", "lulidelacroix", "lolifairies", 
-#     "kutiecrafts", "resin.sweetshop", "runamishop", "mykawaiispace", "starlightsparklesart", "kawaiitherapy", "miffy_official", 
-#     "lunas_emporium", "kawaiienvy", "sweetmagicpaper", "vanyarushop", "korekawaiistore", "damxspa", "ponyo_corniocosmico", "kawaiiteeshop", 
-#     "thekawaiistory", "sh0ppeum", "candyhashi", "thebunbunshopofficial", "kawaiila_official", "thekawaiiconbini", "marofcreativity", "turtle.dove", 
-#     "kizspurr", "becca_vicious", "harajukuyume", "songes_illustrations", "shopcosmiclovely", "nicole.josephine", 
-#     "niji.usako.creations", "fairy.angelstore", "lacuchiwea", "10eestudio", 
-#     "crystal_creations_shop", "himashop___", "vazoonlinestore", "kpop_store__italia", 
-#     "otrio.stationery", "angelbunshop", "temps_dune_lolita", "designstudio_loliya",
-#     "teo_fun_art", "rebelyellsdesign", "kawaiies.collection", 
-#     "hiro.sep10ber", "bombo_maka.shop", "bluebearyco", "ubekeen", "kwaiishup_", "cautiivate",
-#     "macarons_and_stilettos", "catmeilingcreations", "kumacolv", "sanriotyler", "dollipop_sweet_shoppe",
-#     "anime.healing"]
-usernames = ["allison23liu"]
+my_username = ""
+my_password = ""
+usernames = [ 
+    "kawaiipaperdream", 
+    "kawaiigirlz.1", "lacasitadelasternuritas", "riversidekawaiishop", "katrinasdreamsshop", "holleyteatime", "polymernai", "luckyrainbowboutique", "divinegracehealing", "espa.cio120", "artemkemirov", 
+    "rainbelyart", "kawaiicraftlady", "cosmical_doll", "tiffstudioco", "jeanadraws", 
+    "kamiaristudio", "peque.store.pe", "oishi_toys", "mariahannxo", "vanillacookiestarshop", 
+    "fairyheartsshop", "usagistore40", "tofucute", "poussinetpoupette", "latelier.de.cabich", 
+    "kukistore.120", "opalandfern", "kanakodonnako", "psychobabyshop", "kozimocha", 
+    "stuffy_puffs", "natgreenart", "____aristocrats____bd", "poyura.co", "tiny.treasures__", "lulidelacroix", "lolifairies", 
+    "kutiecrafts", "resin.sweetshop", "runamishop", "mykawaiispace", "starlightsparklesart", "kawaiitherapy", "miffy_official", 
+    "lunas_emporium", "kawaiienvy", "sweetmagicpaper", "vanyarushop", "korekawaiistore", "damxspa", "ponyo_corniocosmico", "kawaiiteeshop", 
+    "thekawaiistory", "sh0ppeum", "candyhashi", "thebunbunshopofficial", "kawaiila_official", "thekawaiiconbini", "marofcreativity", "turtle.dove", 
+    "kizspurr", "becca_vicious", "harajukuyume", "songes_illustrations", "shopcosmiclovely", "nicole.josephine", 
+    "niji.usako.creations", "fairy.angelstore", "lacuchiwea", "10eestudio", 
+    "crystal_creations_shop", "himashop___", "vazoonlinestore", "kpop_store__italia", 
+    "otrio.stationery", "angelbunshop", "temps_dune_lolita", "designstudio_loliya",
+    "teo_fun_art", "rebelyellsdesign", "kawaiies.collection", 
+    "hiro.sep10ber", "bombo_maka.shop", "bluebearyco", "ubekeen", "kwaiishup_", "cautiivate",
+    "macarons_and_stilettos", "catmeilingcreations", "kumacolv", "sanriotyler", "dollipop_sweet_shoppe",
+    "anime.healing"]
+#usernames = ["allison23liu"]
 messages = ["Hi! We’re running marketing and outreach tests on behalf of our company. Please disregard this message and have a great day!"]
-
-#browser = webdriver.Chrome('chromedriver_mac_arm64')
 
 def auth(username, password):
     try:
@@ -85,10 +83,14 @@ def send_message(users, messages):
         print("point 6: navigate to message page")
 
         for user in users:
-
             time.sleep(random.randrange(3,5))
-            #click on "Send message"
-            WebDriverWait(browser, 30).until(EC.element_to_be_clickable((By.XPATH, '//button[text()="Send Message"]'))).click()
+
+            if user == users[0]:
+                #click on "Send message"
+                WebDriverWait(browser, 30).until(EC.element_to_be_clickable((By.XPATH, '//button[text()="Send Message"]'))).click()
+            else:
+                #click on writing icon
+                WebDriverWait(browser, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'svg[aria-label="New message"]'))).click()
             
             time.sleep(random.randrange(3,5))
             #search for user
@@ -109,26 +111,33 @@ def send_message(users, messages):
             
             try:
                 #click circle locate_with(By.TAG_NAME, "input").below({By.ID: "email"})
-                WebDriverWait(browser, 15).until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'svg[aria-label="Toggle selection"]'))).click()
+                WebDriverWait(browser, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'svg[aria-label="Toggle selection"]'))).click()
                 time.sleep(random.randrange(1,3))
 
                 print("point 8: toggle selection")
-            except Exception as err:
-                print(err)
-                browser.quit()
 
-            #click Next
-            WebDriverWait(browser, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[text()="Next"]'))).click()
-            time.sleep(random.randrange(1,3))
+                #click Next
+                WebDriverWait(browser, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[text()="Next"]'))).click()
+                time.sleep(random.randrange(1,3))
+                print("point 9: clicks next")
 
-            #send a random message in the text box
-            text_area = WebDriverWait(browser, 30).until(EC.element_to_be_clickable((By.XPATH, '//textarea')))
-            text_area.send_keys(random.choice(messages))
-            time.sleep(random.randrange(2,4))
-            text_area.send_keys(Keys.ENTER)
+                #send a random message in the text box
+                typing = WebDriverWait(browser, 30).until(EC.element_to_be_clickable((By.XPATH, '//textarea')))
+                print("passed 1")
+                typing.send_keys(random.choice(messages) + Keys.ENTER)
+                print("type + send message")
 
-            print("Succesfully sent to " + user)
-            time.sleep(random.randrange(5,7))
+                # time.sleep(random.randrange(5, 7))
+                # sending = WebDriverWait(browser, 30).until(EC.element_to_be_clickable((By.XPATH, '//textarea')))
+                # sending.send_keys(Keys.ENTER)
+                # time.sleep(random.randrange(10,15))
+                # print("send message")
+
+                print("Succesfully sent to " + user)
+
+            except:
+                print("Failed to send to " + user)
+                continue
 
             #time.sleep(random.randrange(240,250))
             
