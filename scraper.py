@@ -10,8 +10,8 @@ from selenium.webdriver.support import expected_conditions as EC
 
 browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
-my_username = ""
-my_password = ""
+# my_username = ""
+# my_password = ""
 usernames = [ 
     "kawaiipaperdream", 
     "kawaiigirlz.1", "lacasitadelasternuritas", "riversidekawaiishop", "katrinasdreamsshop", "holleyteatime", "polymernai", "luckyrainbowboutique", "divinegracehealing", "espa.cio120", "artemkemirov", 
@@ -149,6 +149,6 @@ def send_message(users, messages):
         print(err)
         browser.quit()
 
-auth(my_username, my_password)
-time.sleep(random.randrange(3,5))
-send_message(usernames, messages)
+# auth(my_username, my_password)
+# time.sleep(random.randrange(3,5))
+# send_message(usernames, messages)
