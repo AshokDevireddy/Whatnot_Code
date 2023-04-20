@@ -17,6 +17,7 @@ chrome_options.add_argument("--disable-dev-shm-usage")
 chrome_options.add_argument("--no-sandbox")
 #chrome_options.add_argument("--disable-gpu")
 browser = webdriver.Chrome(executable_path= os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+print(browser.get_window_size())
 
 # options = Options()
 # options.add_argument("start-maximized")
