@@ -18,7 +18,7 @@ chrome_options.add_argument("--no-sandbox")
 #chrome_options.add_argument("--window-size=800,600")
 #chrome_options.add_argument("--disable-gpu")
 browser = webdriver.Chrome(executable_path= os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
-browser.set_window_size(800, 600)
+browser.set_window_size(1200, 900)
 
 # options = Options()
 # options.add_argument("start-maximized")
