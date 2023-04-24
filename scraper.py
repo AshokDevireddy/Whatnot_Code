@@ -52,6 +52,7 @@ messages = ["Hi! We’re running marketing and outreach tests on behalf of our c
 def auth(username, password):
     try:
         browser.get('https://instagram.com')
+        print(browser.get_window_size())
         time.sleep(random.randrange(2,4))
 
         print("point 1: load website")
