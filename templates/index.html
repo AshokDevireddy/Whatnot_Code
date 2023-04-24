@@ -15,6 +15,9 @@
       <label for="file">Upload CSV file:</label>
       <input type="file" name="file" id="file" accept=".csv" required>
       <br>
+      <h4>Create CSV file with List of usernames in one column. Example Below:</h4>
+      <img src="whatnotCSVSample.jpg" alt="CSV file format">
+      <br>
       <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
       <button type="submit" id = "submit-btn">Send Messages</button>
     </form>
