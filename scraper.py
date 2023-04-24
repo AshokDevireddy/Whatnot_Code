@@ -27,8 +27,8 @@ browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
 
 
-my_username = ""
-my_password = ""
+my_username = "kil.liu.a"
+my_password = "School8G"
 usernames = [ 
     "kawaiipaperdream", 
     "kawaiigirlz.1", "lacasitadelasternuritas", "riversidekawaiishop", "katrinasdreamsshop", "holleyteatime", "polymernai", "luckyrainbowboutique", "divinegracehealing", "espa.cio120", "artemkemirov", 
@@ -60,7 +60,9 @@ def auth(username, password):
         print("point 1: load website")
 
         #wait for page to load
-        WebDriverWait(browser, 30).until(EC.element_to_be_clickable((By.NAME, "username"))).click()
+        WebDriverWait(browser, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'input[aria-label="Phone number, username, or email"]'))).click()
+        # does not work: WebDriverWait(browser, 30).until(EC.element_to_be_clickable((By.XPATH,'//span[text()="Phone number, username, or email"]'))).click()
+        #WebDriverWait(browser, 30).until(EC.element_to_be_clickable((By.NAME, "username"))).click()
         WebDriverWait(browser, 30).until(EC.element_to_be_clickable((By.NAME, "password")))
 
         input_username = browser.find_element(By.NAME, "username")
