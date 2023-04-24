@@ -9,24 +9,26 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 #webdriver heroku code
-import os
-chrome_options = webdriver.ChromeOptions()
-chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-chrome_options.add_argument("--headless")
-chrome_options.add_argument("--disable-dev-shm-usage")
-chrome_options.add_argument("--no-sandbox")
-#chrome_options.add_argument("--window-size=800,600")
-#chrome_options.add_argument("--disable-gpu")
-browser = webdriver.Chrome(executable_path= os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
-browser.set_window_size(800, 600)
+# import os
+# chrome_options = webdriver.ChromeOptions()
+# chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+# chrome_options.add_argument("--headless")
+# chrome_options.add_argument("--disable-dev-shm-usage")
+# chrome_options.add_argument("--no-sandbox")
+# #chrome_options.add_argument("--window-size=800,600")
+# #chrome_options.add_argument("--disable-gpu")
+# browser = webdriver.Chrome(executable_path= os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+# browser.set_window_size(800, 600)
 
 # options = Options()
 # options.add_argument("start-maximized")
 # browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-#browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
-# my_username = ""
-# my_password = ""
+
+
+my_username = ""
+my_password = ""
 usernames = [ 
     "kawaiipaperdream", 
     "kawaiigirlz.1", "lacasitadelasternuritas", "riversidekawaiishop", "katrinasdreamsshop", "holleyteatime", "polymernai", "luckyrainbowboutique", "divinegracehealing", "espa.cio120", "artemkemirov", 
@@ -52,6 +54,7 @@ messages = ["Hi! We’re running marketing and outreach tests on behalf of our c
 def auth(username, password):
     try:
         browser.get('https://instagram.com')
+        print(browser.get_window_size())
         time.sleep(random.randrange(2,4))
 
         print("point 1: load website")
@@ -164,6 +167,6 @@ def send_message(users, messages):
         print(err)
         browser.quit()
 
-# auth(my_username, my_password)
+auth(my_username, my_password)
 # time.sleep(random.randrange(3,5))
-# send_message(usernames, messages)
+send_message(usernames, messages)
