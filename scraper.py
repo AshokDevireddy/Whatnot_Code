@@ -58,7 +58,10 @@ def auth(username, password):
         print("point 1: load website")
 
         #wait for page to load
-        WebDriverWait(browser, 30).until(EC.element_to_be_clickable((By.NAME, "username"))).click()
+        WebDriverWait(browser, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'input[aria-label="Phone number, username, or email"]'))).click()
+        #WebDriverWait(browser, 30).until(EC.element_to_be_clickable((By.NAME, "username"))).click()
+        print("point 1.5")
+
         WebDriverWait(browser, 30).until(EC.element_to_be_clickable((By.NAME, "password")))
 
         input_username = browser.find_element(By.NAME, "username")
