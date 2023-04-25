@@ -7,6 +7,7 @@ attrs==22.1.0
 backcall==0.2.0
 beautifulsoup4==4.11.1
 bleach==5.0.1
+blinker==1.6.2
 certifi==2022.12.7
 cffi==1.15.1
 chardet==5.1.0
@@ -20,7 +21,10 @@ entrypoints==0.4
 exceptiongroup==1.1.0
 executing==1.0.0
 fastjsonschema==2.16.1
+Flask==2.3.1
+Flask-WTF==1.1.1
 future==0.18.3
+gunicorn==20.1.0
 h11==0.14.0
 huepy==1.2.1
 idna==3.4
@@ -33,6 +37,7 @@ ipykernel==6.15.3
 ipython==8.5.0
 ipython-genutils==0.2.0
 ipywidgets==8.0.2
+itsdangerous==2.1.2
 jedi==0.18.1
 Jinja2==3.1.2
 jsonschema==4.16.0
@@ -108,6 +113,8 @@ venmo-api==0.3.0
 wcwidth==0.2.5
 webdriver-manager==3.8.5
 webencodings==0.5.1
+Werkzeug==2.3.0
 widgetsnbextension==4.0.3
 wsproto==1.2.0
+WTForms==3.0.1
 zipp==3.8.1
