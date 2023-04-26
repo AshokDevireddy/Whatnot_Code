@@ -22,6 +22,9 @@
       <label for="password" style="font-family: 'Poppins';">&nbsp;&nbsp;&nbsp;Password:</label>
       <input type="password" name="password" id="password" required style="border: 1px solid black; border-radius: 2px;">
       <br>
+      <label for="message" style="font-family: 'Poppins';">Enter Message:</label>
+      <input type="text" name="message" id="message" required style="border: 1px solid black; border-radius: 2px;">
+      <br>
       <label for="file" style="font-family: 'Poppins';">Upload CSV file:</label>
       <input type="file" name="file" id="file" accept=".csv" required>
       <input type="hidden" name="csrf_token" value="{{ csrf_token }}">

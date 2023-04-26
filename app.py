@@ -3,7 +3,7 @@ from flask_wtf.csrf import CSRFProtect, generate_csrf
 from werkzeug.utils import secure_filename
 import os
 import csv
-from scraper import auth, send_message
+#from scraper import auth, send_message
 import threading
 from instabot import Bot
 import glob
@@ -11,6 +11,7 @@ import glob
 # from instascraper import send_dms
 # import subprocess
 import time, random
+from instagrapi import Client
 
 
 
@@ -34,6 +35,7 @@ def index():
 def start():
     username = request.form['username']
     password = request.form['password']
+    message = request.form['message']
 
     file = request.files['file']
     if file and allowed_file(file.filename):
@@ -44,7 +46,7 @@ def start():
             reader = csv.reader(csvfile)
             usernames = [','.join(row) for row in reader]
         
-        messages = ["Hi! We’re running marketing and outreach tests on behalf of our company. Please disregard this message and have a great day!"]
+        #messages = ["Hi! We’re running marketing and outreach tests on behalf of our company. Please disregard this message and have a great day!"]
 
         #uncomment bellow code for selenium webdriver
         # auth(username, password)
@@ -55,7 +57,11 @@ def start():
         # thread = threading.Thread(target=run_instabot, args=(username, password, ["allison23liu"], messages))
         # thread.start()
         # thread.join()
-        send_msg(username, password, usernames, messages)
+        #send_msg(username, password, usernames, message)
+
+
+        #instagrapi code
+        send_insta(username, password, usernames, message)
 
 
         # do something with the username and csv file
@@ -68,7 +74,24 @@ def start():
     else:
         return jsonify({'result': 'error', 'message': 'Invalid file format'})
 
-def send_msg(username, password, usernames, messages):
+def send_insta(username, password, usernames, message):
+  
+    client = Client()
+    client.login(username=username, password=password)
+
+    for user in usernames:
+        
+        users = client.search_users(user)
+        recipient = users[0]  # select the first user in the search results
+        client.direct_send(message, user_ids=[recipient.pk])
+        print("Sent to ", user)
+        time.sleep(random.randrange(250,300))
+
+
+
+
+
+def send_msg(username, password, usernames, message):
     try: 
         cookie_del = glob.glob("config/*cookie.json")
         os.remove(cookie_del[0])
@@ -79,8 +102,8 @@ def send_msg(username, password, usernames, messages):
     bot.login(username=username, password=password, is_threaded = True)
 
     for user in usernames:
-            
-        bot.send_message(messages, [user])
+        #print(message)
+        bot.send_message(message, [user])
         print("Sent to ", user)
     
     bot.logout()
