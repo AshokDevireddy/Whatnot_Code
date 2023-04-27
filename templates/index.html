@@ -37,8 +37,65 @@
         const messageSent = document.getElementById('message-sent');
         submitBtn.addEventListener('click', () => {
             messageSent.innerHTML = 'Sending Messages ...';
+
+            // Periodically request the status of the background task and update the page
+            const statusEl = document.getElementById('status');
+            const statusInterval = setInterval(function() {
+              const xhr = new XMLHttpRequest();
+              xhr.open('GET', '/status');
+              xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+              xhr.onload = function() {
+                // Update the status element with the response text
+                statusEl.innerHTML = xhr.responseText;
+              };
+              xhr.send();
+            }, 1000); // Request the status every 1 second
+
         });
       </script>
+      <br>
+      <div id="status">
+        <!-- Status updates will be displayed here -->
+      </div>
+    
+      <!-- <script>
+        // Get the form and submit button elements
+        const form = document.getElementById('message-form');
+        const submitBtn = document.getElementById('submit-btn');
+    
+        // Add an event listener to the form submit event
+        form.addEventListener('submit', function(event) {
+          // Prevent the default form submit behavior
+          event.preventDefault();
+    
+          // Disable the submit button while the messages are being sent
+          submitBtn.disabled = true;
+    
+          // Send the form data to the server using AJAX
+          const xhr = new XMLHttpRequest();
+          xhr.open('POST', '/start');
+          xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+          xhr.onload = function() {
+            // Re-enable the submit button once the request is complete
+            submitBtn.disabled = false;
+          };
+          xhr.send(new FormData(form));
+    
+          // Periodically request the status of the background task and update the page
+          const statusEl = document.getElementById('status');
+          const statusInterval = setInterval(function() {
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', '/status');
+            xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+            xhr.onload = function() {
+              // Update the status element with the response text
+              statusEl.innerHTML = xhr.responseText;
+            };
+            xhr.send();
+          }, 1000); // Request the status every 1 second
+        });
+      </script> -->
+    
       <br>
       <h4>Recipient usernames should be listed in first column of CSV. See example file screenshot below:</h4>
       <img src="https://res.cloudinary.com/davnbv9bv/image/upload/v1682454917/whatnotCSVSample_mv2sln.jpg" alt="CSV file format">

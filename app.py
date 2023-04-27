@@ -31,6 +31,10 @@ def index():
     csrf_token = generate_csrf()
     return render_template('index.html', csrf_token=csrf_token)
 
+@app.route('/status')
+def status():
+    return f'Processing... {time.time()}'
+
 @app.route('/start', methods=['POST'])
 def start():
     username = request.form['username']
@@ -61,18 +65,20 @@ def start():
 
 
         #instagrapi code
-        send_insta(username, password, usernames, message)
+        #send_insta(username, password, usernames, message)
+        t = threading.Thread(target=send_insta, args=(username, password, usernames, message))
+        t.start()
 
 
         # do something with the username and csv file
         if os.path.exists(file_path):
             os.remove(file_path)
         
-        return render_template('index.html', message_sent='Sent all Messages')
+        return render_template('index.html', message_sent='Sending Messages in Background')
         
 
     else:
-        return jsonify({'result': 'error', 'message': 'Invalid file format'})
+        return jsonify({'result': 'error', 'message': 'Failed to send messages'})
 
 def send_insta(username, password, usernames, message):
     print(username, password, usernames, message)
