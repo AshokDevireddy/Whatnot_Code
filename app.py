@@ -57,11 +57,11 @@ def start():
         # thread = threading.Thread(target=run_instabot, args=(username, password, ["allison23liu"], messages))
         # thread.start()
         # thread.join()
-        #send_msg(username, password, usernames, message)
+        send_msg(username, password, usernames, message)
 
 
         #instagrapi code
-        send_insta(username, password, usernames, message)
+        #send_insta(username, password, usernames, message)
 
 
         # do something with the username and csv file
@@ -85,7 +85,7 @@ def send_insta(username, password, usernames, message):
         recipient = users[0]  # select the first user in the search results
         client.direct_send(message, user_ids=[recipient.pk])
         print("Sent to ", user)
-        for i in range(15):
+        for i in range(10):
             time.sleep(random.randrange(25,30))
             print("processing ...")
 
