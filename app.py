@@ -66,7 +66,10 @@ def start():
 
         #instagrapi code
         #send_insta(username, password, usernames, message)
-        t = threading.Thread(target=send_insta, args=(username, password, usernames, message))
+        print(username, password, usernames, message)
+        client = Client()
+        client.login(username=username, password=password)
+        t = threading.Thread(target=send_insta, args=(usernames, message, client))
         t.start()
 
 
@@ -80,13 +83,11 @@ def start():
     else:
         return jsonify({'result': 'error', 'message': 'Failed to send messages'})
 
-def send_insta(username, password, usernames, message):
-    print(username, password, usernames, message)
-    client = Client()
-    client.login(username=username, password=password)
+def send_insta(usernames, message, client):
+    
 
     for user in usernames:
-        
+
         users = client.search_users(user)
         recipient = users[0]  # select the first user in the search results
         client.direct_send(message, user_ids=[recipient.pk])
