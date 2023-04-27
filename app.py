@@ -85,7 +85,10 @@ def send_insta(username, password, usernames, message):
         recipient = users[0]  # select the first user in the search results
         client.direct_send(message, user_ids=[recipient.pk])
         print("Sent to ", user)
-        time.sleep(random.randrange(250,300))
+        for i in range(15):
+            time.sleep(random.randrange(25,30))
+            print("processing ...")
+
 
 
 
