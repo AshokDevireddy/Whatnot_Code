@@ -75,7 +75,7 @@ def start():
         return jsonify({'result': 'error', 'message': 'Invalid file format'})
 
 def send_insta(username, password, usernames, message):
-  
+    print(username, password, usernames, message)
     client = Client()
     client.login(username=username, password=password)
 
