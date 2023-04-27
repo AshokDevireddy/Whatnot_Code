@@ -57,11 +57,11 @@ def start():
         # thread = threading.Thread(target=run_instabot, args=(username, password, ["allison23liu"], messages))
         # thread.start()
         # thread.join()
-        send_msg(username, password, usernames, message)
+        #send_msg(username, password, usernames, message)
 
 
         #instagrapi code
-        #send_insta(username, password, usernames, message)
+        send_insta(username, password, usernames, message)
 
 
         # do something with the username and csv file
